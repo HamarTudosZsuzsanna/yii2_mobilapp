@@ -61,8 +61,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new \app\models\LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect(['profile/index']);
+        }
+
+        return $this->render('index', [
+            'model' => $model,
+        ]);
     }
+
 
     /**
      * Login action.
@@ -76,12 +85,16 @@ class SiteController extends Controller
         }
 
         $model = new \app\models\LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect(['profile/index']);
         }
 
-        return $this->render('login', ['model' => $model]);
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
+
 
 
     /**
