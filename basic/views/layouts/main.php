@@ -78,7 +78,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </main>
 
-<footer id="footer" class="mt-auto py-3 footer ">
+<footer id="footer" class="mt-auto py-3 footer position-fix bottom-0">
     <div class="container">
         <div class="row text-light">
             <div class="col-md-6 text-center text-md-start">&copy; HeroesAPP <?= date('Y') ?></div>

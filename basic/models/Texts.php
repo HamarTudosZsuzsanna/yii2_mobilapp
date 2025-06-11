@@ -12,7 +12,7 @@ use Yii;
  * @property string $text
  * @property string $created_at
  */
-class Text extends \yii\db\ActiveRecord
+class Texts extends \yii\db\ActiveRecord
 {
 
 
