@@ -64,7 +64,7 @@ class SiteController extends Controller
         $model = new \app\models\LoginForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['profile/index']);
+            return $this->redirect(['text/index']);
         }
 
         return $this->render('index', [

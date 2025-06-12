@@ -4,6 +4,8 @@ use yii\helpers\Html;
 
 $this->title = 'Üzenőfal';
 $this->registerCssFile('@web/css/text.css');
+$this->registerCssFile('@web/css/site.css');
+$this->registerCssFile('@web/css/home.css');
 $this->registerJsFile('@web/js/text.js');
 ?>
 

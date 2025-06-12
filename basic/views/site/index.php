@@ -26,7 +26,7 @@ $this->registerJsFile('@web/js/main.js');
         <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Jelszó'])->label(false) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Bejelentkezés', ['class' => 'btn btn-primary ']) ?>
+            <?= Html::submitButton('Bejelentkezés', ['class' => ' button']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

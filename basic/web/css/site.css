@@ -1,14 +1,12 @@
 html, body {
-    /*height: 100% !important;*/
+    height: 100% !important;
     background: linear-gradient(135deg, #eee, #797979);
 }
 
-.h-100 {
-    height: 1% !important;
-}
-
 main > .container {
-    padding: 70px 15px 20px;
+    padding: 70px 15px 25px;
+    overflow: scroll;
+    height: 90%;
 }
 
 .footer {
@@ -75,19 +73,23 @@ a.desc:after {
 
 /* saját stílus */
 
-.btn {
+.button {
     padding: 10px !important;
     border: 1px solid #797979;
     border-radius: 5px;
-    background-color: #222;
-    color: #fff;
+    background-color: #222 !important;
+    color: #fff !important;
     text-decoration: none;
-    width: 80%;
-    height: 30px;
+    /*width: 80%;
+    height: 30px !important;*/
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#main{
+    flex: 1 0 auto;
 }
 
 @media(max-width:767px) {

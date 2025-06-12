@@ -13,5 +13,6 @@
 
 #logo {
   animation: logo_animation 5s ease-in-out;
-  height: 40%;
+  height: 30%;
+  margin-top: 30px;
 }

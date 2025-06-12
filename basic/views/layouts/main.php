@@ -45,7 +45,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'brandUrl' => Yii::$app->homeUrl,*/
         'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top p-4']
     ]);
-    /*echo Nav::widget([
+    echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
@@ -64,12 +64,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     . '</li>'
         ]
     ]);
-    NavBar::end();*/
+    NavBar::end();
     ?>
 </header>
 
-<main id="main" class="flex-shrink-0 " role="main">
-    <div class="container d-flex flex-column align-items-center justify-content-start mt-3 mb-3">
+<main id="main" class="flex-grow-1" role="main">
+    <div class="container d-flex flex-column align-items-center justify-content-start mt-3 mb-3" id="container">
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
         <?php endif ?>
@@ -78,7 +78,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </main>
 
-<footer id="footer" class="mt-auto py-3 footer position-fix bottom-0">
+<footer id="footer" class="py-3 bg-dark text-light fixed-bottom">
     <div class="container">
         <div class="row text-light">
             <div class="col-md-6 text-center text-md-start">&copy; HeroesAPP <?= date('Y') ?></div>
