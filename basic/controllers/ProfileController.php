@@ -31,4 +31,10 @@ class ProfileController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function actionPersonal()
+    {
+        $user = Yii::$app->user->identity;
+        return $this->render('personal/index', ['user' => $user]);
+    }
 }

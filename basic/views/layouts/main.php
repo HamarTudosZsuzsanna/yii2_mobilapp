@@ -31,63 +31,61 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 <body class="d-flex flex-column h-100">
-<?php $this->beginBody() ?>
+    <?php $this->beginBody() ?>
 
-<header id="header">
-    <?php
-    NavBar::begin([
-        /*'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,*/
-        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top p-4']
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Játékosok', 'url' => ['/player']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/site/login']]
-                : '<li class="nav-item">'
-                    . Html::beginForm(['/site/logout'])
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'nav-link btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>'
-        ]
-    ]);
-    NavBar::end();
-    ?>
-</header>
+    <header id="header" class="bg-dark p-2 text-end">
+        <?php if (!Yii::$app->user->isGuest): ?>
+            <div class="d-inline-block text-white">
+                <span class="me-3">
+                    <?= Html::a('<i class="fas fa-user-circle"></i> ' . Html::encode(Yii::$app->user->identity->username), ['/profile/index'], [
+                        'class' => 'text-white text-decoration-none',
+                        'encode' => false,
+                        'title' => 'Profil megtekintése',
+                    ]) ?>
+                </span>
 
-<main id="main" class="flex-grow-1" role="main">
-    <div class="container d-flex flex-column align-items-center justify-content-start mt-3 mb-3" id="container">
-        <?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-        <?php endif ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</main>
+                <?= Html::beginForm(['/site/logout'], 'post', ['class' => 'd-inline']) ?>
+                <?= Html::submitButton('<i class="fas fa-sign-out-alt"></i>', [
+                    'class' => 'btn btn-link text-white',
+                    'title' => 'Kijelentkezés',
+                    'encode' => false,
+                ]) ?>
+                <?= Html::endForm() ?>
+            </div>
+        <?php endif; ?>
+    </header>
 
-<footer id="footer" class="py-3 bg-dark text-light fixed-bottom">
-    <div class="container">
-        <div class="row text-light">
-            <div class="col-md-6 text-center text-md-start">&copy; HeroesAPP <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+
+    <main id="main" class="flex-grow-1" role="main">
+        <div class="container d-flex flex-column align-items-center justify-content-start mt-3 mb-3" id="container">
+            <?php if (!empty($this->params['breadcrumbs'])): ?>
+                <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+            <?php endif ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
         </div>
-    </div>
-</footer>
+    </main>
 
-<?php $this->endBody() ?>
+    <footer id="footer" class="py-3 bg-dark text-light fixed-bottom">
+        <div class="container">
+            <div class="row text-light">
+                <div class="col-md-6 text-center text-md-start">&copy; HeroesAPP <?= date('Y') ?></div>
+                <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+            </div>
+        </div>
+    </footer>
+
+    <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage() ?>

@@ -1,17 +1,24 @@
 <?php
+
 use yii\helpers\Html;
+
+$this->registerCssFile('@web/css/profile.css');
 
 $this->title = 'Saját profil';
 ?>
 
-<h1><?= Html::encode($this->title) ?></h1>
+<h1 class="name"><?= Html::encode($user->player->name) ?></h1>
 
-<p><strong>Felhasználónév:</strong> <?= Html::encode($user->username) ?></p>
-<p><strong>Email:</strong> <?= Html::encode($user->email) ?></p>
-<p><strong>Szerepkör:</strong> <?= Html::encode($user->role) ?></p>
 
-<?php if ($user->player): ?>
-    <h2>Játékos adatok</h2>
-    <p><strong>Név:</strong> <?= Html::encode($user->player->name) ?></p>
-    <p><strong>Mezszám:</strong> <?= Html::encode($user->player->number) ?></p>
-<?php endif; ?>
+<div class=" d-flex flex-column align-items-center justify-content-center mb-5 mt-3">
+    <div class="club fst-italic"><?= Html::encode($user->username) ?></div>
+    <hr>
+    <div class="club">Heroes Flying Disc</div>
+</div>
+
+<?= Html::a('Személyes adatok', ['profile/personal'], ['class' => 'btn btn-primary mb-3 button']) ?>
+<?= Html::a('Edzéslátogatás', ['profile/personal'], ['class' => 'btn btn-primary mb-3 button']) ?>
+<?= Html::a('Tagdíj', ['profile/personal'], ['class' => 'btn btn-primary mb-3 button']) ?>
+<?= Html::a('Üzenőfal', ['text/'], ['class' => 'btn btn-primary mb-3 button']) ?>
+
+

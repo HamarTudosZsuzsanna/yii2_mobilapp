@@ -1,0 +1,47 @@
+hr{
+    width: 80%;
+}
+
+.name{
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+    text-align: center;
+    color: #555;
+}
+.club{
+    text-align: center;
+    font-style: italic;
+    color: rgb(105, 105, 105);
+    text-shadow: 1px 1px rgb(231, 231, 231);
+}
+
+.details-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin: 10px;
+}
+
+.data{
+    padding: 10px;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    color: #444;
+    box-shadow: inset 1px 1px 1px grey;
+    width: 60%;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+.label{
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #444;
+    width: 150px;
+}
