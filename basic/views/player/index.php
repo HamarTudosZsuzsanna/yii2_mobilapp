@@ -10,41 +10,46 @@ use yii\grid\GridView;
 /** @var app\models\PlayerSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
+$this->registerCssFile('@web/css/site.css');
+
+
 $this->title = 'Játékosok';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="players-index">
+<div class="players-index container my-4">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <div class="text-center mb-3">
         <?= Html::a('Új játékos hozzáadása', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    </div>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'tableOptions' => ['class' => 'table table-striped table-bordered'],
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            //'id',
-            'name',
-            'birthday',
-            'address',
-            'email:email',
-            'license',
-            'number',
-            //'created_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Players $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                //'id',
+                'name',
+                //'birthday',
+                //'address',
+                //'email:email',
+                //'license',
+                'number',
+                //'created_at',
+                [
+                    'class' => yii\grid\ActionColumn::className(),
+                    'urlCreator' => function ($action, \app\models\Players $model, $key, $index, $column) {
+                        return \yii\helpers\Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
+    </div>
 
-
+</div>
+<div class="text-center mt-4">
+    <?= Html::a('Vissza az admin felületre', ['admin/index'], ['class' => 'button']) ?>
 </div>

@@ -87,6 +87,13 @@ class SiteController extends Controller
         $model = new \app\models\LoginForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+
+            // ADMIN ÁTIRÁNYÍTÁS ITT
+            /*if (Yii::$app->user->identity->role === 'admin') {
+                return $this->redirect(['admin/index']);
+            }*/
+
             return $this->redirect(['profile/index']);
         }
 

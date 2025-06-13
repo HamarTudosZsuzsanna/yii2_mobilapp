@@ -9,11 +9,11 @@ $this->title = 'Bejelentkezés';
 
 <?php $form = ActiveForm::begin(); ?>
 
-<?= $form->field($model, 'username') ?>
-<?= $form->field($model, 'password')->passwordInput() ?>
+<?= $form->field($model, 'username')->textInput(['placeholder' => 'Felhasználónév'])->label(false) ?>
+        <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Jelszó'])->label(false) ?>
 
 <div class="form-group">
-    <?= Html::submitButton('Belépés', ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton('Belépés', ['class' => 'button']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>

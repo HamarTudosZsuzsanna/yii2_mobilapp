@@ -42,27 +42,40 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <body class="d-flex flex-column h-100">
     <?php $this->beginBody() ?>
 
-    <header id="header" class="bg-dark p-2 text-end">
-        <?php if (!Yii::$app->user->isGuest): ?>
-            <div class="d-inline-block text-white">
-                <span class="me-3">
-                    <?= Html::a('<i class="fas fa-user-circle"></i> ' . Html::encode(Yii::$app->user->identity->username), ['/profile/index'], [
+<header id="header" class="bg-dark p-2 text-end">
+    <?php if (!Yii::$app->user->isGuest): ?>
+        <div class="d-inline-block text-white">
+            <span class="me-3">
+                <?php
+
+                $user = Yii::$app->user->identity;
+                $isAdmin = $user->role === 'admin';
+
+                $profileUrl = $isAdmin ? Url::to(['/admin/index']) : Url::to(['/profile/index']);
+
+                echo Html::a(
+                    '<i class="fas fa-user-circle"></i> ' . Html::encode($user->username),
+                    $profileUrl,
+                    [
                         'class' => 'text-white text-decoration-none',
                         'encode' => false,
-                        'title' => 'Profil megtekintése',
-                    ]) ?>
-                </span>
+                        'title' => $isAdmin ? 'Admin felület' : 'Profil megtekintése',
+                    ]
+                );
+                ?>
+            </span>
 
-                <?= Html::beginForm(['/site/logout'], 'post', ['class' => 'd-inline']) ?>
-                <?= Html::submitButton('<i class="fas fa-sign-out-alt"></i>', [
-                    'class' => 'btn btn-link text-white',
-                    'title' => 'Kijelentkezés',
-                    'encode' => false,
-                ]) ?>
-                <?= Html::endForm() ?>
-            </div>
-        <?php endif; ?>
-    </header>
+            <?= Html::beginForm(['/site/logout'], 'post', ['class' => 'd-inline']) ?>
+            <?= Html::submitButton('<i class="fas fa-sign-out-alt"></i>', [
+                'class' => 'btn btn-link text-white',
+                'title' => 'Kijelentkezés',
+                'encode' => false,
+            ]) ?>
+            <?= Html::endForm() ?>
+        </div>
+    <?php endif; ?>
+</header>
+
 
 
     <main id="main" class="flex-grow-1" role="main">

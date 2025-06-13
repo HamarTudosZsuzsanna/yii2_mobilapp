@@ -88,6 +88,10 @@ a.desc:after {
     justify-content: center;
 }
 
+.text-form{
+    width: 100%;
+}
+
 #main{
     flex: 1 0 auto;
 }
