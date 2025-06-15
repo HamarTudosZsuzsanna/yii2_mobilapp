@@ -45,7 +45,7 @@ class PlayerController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    /*public function actionIndex()
     {
         $searchModel = new PlayerSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
@@ -54,7 +54,26 @@ class PlayerController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }*/
+    public function actionIndex()
+    {
+        $searchModel = new PlayerSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        $players = Players::find()->all();
+
+        $selectedPlayer = null;
+
+        if (Yii::$app->request->get('player_id')) {
+            $selectedPlayer = Players::findOne(Yii::$app->request->get('player_id'));
+        }
+
+        return $this->render('index', [
+            'players' => $players,
+            'selectedPlayer' => $selectedPlayer,
+        ]);
     }
+
 
     /**
      * Displays a single Players model.

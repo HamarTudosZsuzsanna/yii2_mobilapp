@@ -5,14 +5,11 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Players $model */
 
-$this->title = 'Játékos frissítése: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Játékosok', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Frissítés';
+$this->title = $model->name;
 ?>
-<div class="players-update">
+<div class="players-update w-100">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

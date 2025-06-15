@@ -8,7 +8,7 @@ $this->registerCssFile('@web/css/profile.css');
 $this->title = 'Új üzenet a csapatnak';
 ?>
 
-<h1><?= Html::encode($this->title) ?></h1>
+<h1 class="mb-3"><?= Html::encode($this->title) ?></h1>
 
 <div class="text-form">
     <?php $form = ActiveForm::begin(); ?>
@@ -26,7 +26,7 @@ $this->title = 'Új üzenet a csapatnak';
     <div class="form-group">
         <?= Html::submitButton('Küldés', ['class' => 'button']) ?>
     </div>
-    <?= Html::a('Vissza', ['admin/'], ['class' => 'btn btn-primary mb-3 mt-5 button']) ?>
+    <?= Html::a('Vissza az admin felületre', ['admin/'], ['class' => 'btn btn-secondary mb-3 mt-5 w-100']) ?>
 
     <?php ActiveForm::end(); ?>
 </div>

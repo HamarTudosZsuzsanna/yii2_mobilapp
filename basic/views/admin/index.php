@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Admin irányítópult';
+$this->title = 'HeroesAPP Admin';
 ?>
 
 
