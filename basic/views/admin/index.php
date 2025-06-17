@@ -23,7 +23,7 @@ $this->title = 'Saját profil';
 
 <?= Html::a('Üzenetküldés', ['text/create'], ['class' => 'btn btn-primary mb-3 button']) ?>
 <?= Html::a('Játékosok', ['player/'], ['class' => 'btn btn-primary mb-3 button']) ?>
-<?= Html::a('Edzéslátogatás', ['trainings/'], ['class' => 'btn btn-primary mb-3 button']) ?>
+<?= Html::a('Edzéslátogatás', ['trainings/index'], ['class' => 'btn btn-primary mb-3 button']) ?>
 <?= Html::a('Tagdíj', ['profile/personal'], ['class' => 'btn btn-primary mb-3 button']) ?>
 <hr>
 <?= Html::a('Üzenőfal', ['text/'], ['class' => 'btn btn-primary mb-3 button']) ?>
